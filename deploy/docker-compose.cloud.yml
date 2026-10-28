@@ -1,0 +1,30 @@
+# Cloud VM deployment with automatic HTTPS (Caddy + Let's Encrypt).
+#   docker compose -f docker-compose.yml -f deploy/docker-compose.cloud.yml up -d --build
+# Requires in .env:  DOMAIN=<your-dns-name>  ADMIN_TOKEN=<long random string>
+services:
+  backend:
+    environment:
+      ENVIRONMENT: production
+      CORS_ORIGINS: https://${DOMAIN:?set DOMAIN in .env}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?set ADMIN_TOKEN in .env for any public deployment}
+
+  frontend:
+    ports: !reset []
+
+  caddy:
+    image: caddy:2.8-alpine
+    depends_on: [frontend]
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

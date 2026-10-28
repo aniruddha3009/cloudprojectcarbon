@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+    <style>.h{fill:#fff;stroke:#3b3b3b;stroke-width:1.4}.t{font-size:14px;font-weight:600;text-anchor:middle;fill:#1b1b1b}.ll{stroke:#aaa;stroke-dasharray:4 4}.m{stroke:#444;stroke-width:1.5;fill:none;marker-end:url(#a)}.k{font-size:12.5px;fill:#333}.tm{font-size:12px;fill:#888}</style>
+  </defs>
+  <rect width="1200" height="560" fill="#fff"/>
+  <text x="30" y="34" font-size="20" font-weight="700" fill="#1b1b1b">Emergency-to-green repayment scenario (demo, sim times UTC)</text>
+  <g>
+    <rect class="h" x="120" y="55" width="150" height="40" rx="8"/><text x="195" y="80" class="t">Emergency job</text>
+    <rect class="h" x="330" y="55" width="150" height="40" rx="8"/><text x="405" y="80" class="t">Controller</text>
+    <rect class="h" x="540" y="55" width="150" height="40" rx="8"/><text x="615" y="80" class="t">Flexible jobs</text>
+    <rect class="h" x="750" y="55" width="150" height="40" rx="8"/><text x="825" y="80" class="t">Ledger</text>
+    <rect class="h" x="960" y="55" width="150" height="40" rx="8"/><text x="1035" y="80" class="t">Grid curve</text>
+    <path class="ll" d="M195 95 V540 M405 95 V540 M615 95 V540 M825 95 V540 M1035 95 V540"/>
+  </g>
+  <text x="20" y="130" class="tm">06:45</text><path class="m" d="M1035 125 H200"/><text x="610" y="120" class="k">intensity 547–650 g/kWh (morning peak)</text>
+  <text x="20" y="165" class="tm">06:45</text><path class="m" d="M405 160 H200"/><text x="215" y="153" class="k">EMERGENCY_START at 100%</text>
+  <text x="20" y="200" class="tm">07:00</text><path class="m" d="M405 195 H610"/><text x="420" y="188" class="k">DEFER ETL &amp; sweep → 12:00 (baseline recorded)</text>
+  <text x="20" y="235" class="tm">07:00</text><path class="m" d="M410 230 H820"/><text x="560" y="223" class="k">DEFERRAL_RECORDED (baseline ≈ 633 g/kWh)</text>
+  <text x="20" y="270" class="tm">07:30</text><path class="m" d="M405 265 H610"/><text x="420" y="258" class="k">CRITICAL band: pause log compaction (deadline-safe)</text>
+  <text x="20" y="305" class="tm">07:45</text><path class="m" d="M200 300 H820"/><text x="300" y="293" class="k">job done → DEBT_INCURRED +386 g (total debt ≈ 1 059 g by 10:30)</text>
+  <text x="20" y="345" class="tm">11:30</text><path class="m" d="M1035 340 H410"/><text x="640" y="333" class="k">green window opens (≤ 200 g/kWh)</text>
+  <text x="20" y="380" class="tm">12:00</text><path class="m" d="M405 375 H610"/><text x="420" y="368" class="k">REPAYMENT_START (ranked by repayment value)</text>
+  <text x="20" y="420" class="tm">13:00</text><path class="m" d="M615 415 H820"/><text x="630" y="408" class="k">CREDIT_VERIFIED −491 g (ref. deferral)</text>
+  <text x="20" y="460" class="tm">13:30</text><path class="m" d="M615 455 H820"/><text x="630" y="448" class="k">CREDIT_VERIFIED −260 g → balance 0</text>
+  <text x="20" y="500" class="tm">13:30</text><path class="m" d="M825 495 H410"/><text x="460" y="488" class="k">DEBT_CLEARED → priority inversion lifted, state NORMAL</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="380" viewBox="0 0 1100 380" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+    <style>.s{fill:#fff;stroke:#3b3b3b;stroke-width:1.4}.f{fill:#eef8f2;stroke:#1a9e5c}.x{fill:#fbeeee;stroke:#b0413e}.t{font-size:15px;text-anchor:middle;fill:#1b1b1b;font-weight:600}.l{stroke:#555;stroke-width:1.5;fill:none;marker-end:url(#a)}.k{font-size:12px;fill:#555}</style>
+  </defs>
+  <rect width="1100" height="380" fill="#fff"/>
+  <text x="30" y="36" font-size="20" font-weight="700" fill="#1b1b1b">Job state machine (invalid transitions raise InvalidTransition)</text>
+  <rect class="s" x="40" y="150" width="120" height="50" rx="25"/><text x="100" y="181" class="t">pending</text>
+  <rect class="s" x="230" y="150" width="120" height="50" rx="25"/><text x="290" y="181" class="t">queued</text>
+  <rect class="s" x="430" y="70" width="130" height="50" rx="25"/><text x="495" y="101" class="t">deferred</text>
+  <rect class="s" x="620" y="150" width="120" height="50" rx="25"/><text x="680" y="181" class="t">running</text>
+  <rect class="s" x="620" y="280" width="120" height="50" rx="25"/><text x="680" y="311" class="t">paused</text>
+  <rect class="s f" x="860" y="80" width="140" height="50" rx="25"/><text x="930" y="111" class="t">completed</text>
+  <rect class="s x" x="860" y="160" width="140" height="50" rx="25"/><text x="930" y="191" class="t">failed</text>
+  <rect class="s x" x="860" y="240" width="140" height="50" rx="25"/><text x="930" y="271" class="t">cancelled</text>
+  <path class="l" d="M160 175 H228"/><text x="168" y="165" class="k">arrival</text>
+  <path class="l" d="M350 165 L428 105"/><text x="352" y="122" class="k">DEFER / hold</text>
+  <path class="l" d="M350 178 H618"/><text x="420" y="196" class="k">START / EMERGENCY_START</text>
+  <path class="l" d="M560 100 L640 150"/><text x="590" y="112" class="k">planned slot</text>
+  <path class="l" d="M520 70 C520 30 470 30 470 68"/><text x="455" y="26" class="k">re-plan</text>
+  <path class="l" d="M670 200 V278"/><text x="590" y="245" class="k">PAUSE (debt band)</text>
+  <path class="l" d="M690 280 V202"/><text x="696" y="245" class="k">RESTORE</text>
+  <path class="l" d="M740 165 L858 110"/>
+  <path class="l" d="M740 180 H858"/><text x="760" y="174" class="k">fault</text>
+  <path class="l" d="M740 195 L858 255"/>
+  <path class="l" d="M290 200 C290 340 800 340 858 275"/><text x="420" y="350" class="k">cancel while waiting (no credit)</text>
+</svg>

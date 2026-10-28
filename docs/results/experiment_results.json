@@ -1,0 +1,1047 @@
+{
+  "request": {
+    "name": "Canonical comparison (docs)",
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "policies": [
+      "fifo",
+      "threshold",
+      "debt_reactive",
+      "debt_predictive"
+    ],
+    "emergency": 4,
+    "normal": 18,
+    "background": 14,
+    "profile": "solar_midday",
+    "noise_pct": "3",
+    "debt_intensity_threshold": "350",
+    "green_threshold": "200",
+    "debt_soft_g": "100",
+    "debt_hard_g": "400",
+    "debt_critical_g": "800",
+    "static_power_fraction": "0.30",
+    "workers": 4,
+    "emergency_reserve": 1,
+    "sweep_param": "green_threshold",
+    "sweep_values": [
+      "150",
+      "200",
+      "250",
+      "300"
+    ],
+    "sweep_policy": "debt_predictive"
+  },
+  "aggregates": {
+    "fifo": {
+      "gross_emissions_g": {
+        "mean": 20637.136,
+        "std": 2414.509,
+        "min": 16575.403,
+        "max": 23967.97
+      },
+      "energy_kwh": {
+        "mean": 49.79,
+        "std": 4.184,
+        "min": 42.875,
+        "max": 55.55
+      },
+      "total_debt_g": {
+        "mean": 5384.667,
+        "std": 1019.073,
+        "min": 4023.912,
+        "max": 7066.067
+      },
+      "credits_applied_g": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "credits_earned_g": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "final_debt_g": {
+        "mean": 5384.667,
+        "std": 1019.073,
+        "min": 4023.912,
+        "max": 7066.067
+      },
+      "peak_debt_g": {
+        "mean": 5384.667,
+        "std": 1019.073,
+        "min": 4023.912,
+        "max": 7066.067
+      },
+      "deadline_misses": {
+        "mean": 0.2,
+        "std": 0.422,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "emergency_deadline_misses": {
+        "mean": 0.1,
+        "std": 0.316,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "avg_wait_min": {
+        "mean": 23.667,
+        "std": 13.405,
+        "min": 7.92,
+        "max": 47.08
+      },
+      "avg_delay_min": {
+        "mean": 23.667,
+        "std": 13.405,
+        "min": 7.92,
+        "max": 47.08
+      },
+      "deferrals": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "jobs_deferred": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "throttle_actions": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "energy_per_job_kwh": {
+        "mean": 1.383,
+        "std": 0.116,
+        "min": 1.191,
+        "max": 1.543
+      },
+      "completed_jobs": {
+        "mean": 36.0,
+        "std": 0.0,
+        "min": 36.0,
+        "max": 36.0
+      },
+      "failed_or_unfinished": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "decision_overhead_us": {
+        "mean": 16.319,
+        "std": 3.71,
+        "min": 11.0,
+        "max": 21.71
+      }
+    },
+    "threshold": {
+      "gross_emissions_g": {
+        "mean": 17588.084,
+        "std": 1920.07,
+        "min": 14953.888,
+        "max": 20113.832
+      },
+      "energy_kwh": {
+        "mean": 49.79,
+        "std": 4.184,
+        "min": 42.875,
+        "max": 55.55
+      },
+      "total_debt_g": {
+        "mean": 2964.736,
+        "std": 724.436,
+        "min": 1875.62,
+        "max": 4255.928
+      },
+      "credits_applied_g": {
+        "mean": 2495.595,
+        "std": 859.578,
+        "min": 1010.528,
+        "max": 4123.857
+      },
+      "credits_earned_g": {
+        "mean": 5233.255,
+        "std": 955.292,
+        "min": 3443.983,
+        "max": 6395.84
+      },
+      "final_debt_g": {
+        "mean": 469.141,
+        "std": 606.862,
+        "min": 26.319,
+        "max": 2046.542
+      },
+      "peak_debt_g": {
+        "mean": 1608.719,
+        "std": 380.855,
+        "min": 1073.449,
+        "max": 2349.959
+      },
+      "deadline_misses": {
+        "mean": 1.3,
+        "std": 1.337,
+        "min": 0.0,
+        "max": 4.0
+      },
+      "emergency_deadline_misses": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "avg_wait_min": {
+        "mean": 235.959,
+        "std": 37.572,
+        "min": 181.25,
+        "max": 292.5
+      },
+      "avg_delay_min": {
+        "mean": 235.959,
+        "std": 37.572,
+        "min": 181.25,
+        "max": 292.5
+      },
+      "deferrals": {
+        "mean": 431.6,
+        "std": 75.86,
+        "min": 335.0,
+        "max": 554.0
+      },
+      "jobs_deferred": {
+        "mean": 23.1,
+        "std": 2.331,
+        "min": 18.0,
+        "max": 26.0
+      },
+      "throttle_actions": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "energy_per_job_kwh": {
+        "mean": 1.383,
+        "std": 0.116,
+        "min": 1.191,
+        "max": 1.543
+      },
+      "completed_jobs": {
+        "mean": 36.0,
+        "std": 0.0,
+        "min": 36.0,
+        "max": 36.0
+      },
+      "failed_or_unfinished": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "decision_overhead_us": {
+        "mean": 83.119,
+        "std": 16.552,
+        "min": 55.75,
+        "max": 113.21
+      }
+    },
+    "debt_reactive": {
+      "gross_emissions_g": {
+        "mean": 16880.116,
+        "std": 1542.422,
+        "min": 14047.91,
+        "max": 18755.493
+      },
+      "energy_kwh": {
+        "mean": 50.22,
+        "std": 4.368,
+        "min": 43.227,
+        "max": 55.55
+      },
+      "total_debt_g": {
+        "mean": 3159.782,
+        "std": 709.464,
+        "min": 2192.731,
+        "max": 4607.653
+      },
+      "credits_applied_g": {
+        "mean": 3088.167,
+        "std": 569.544,
+        "min": 2192.731,
+        "max": 3902.399
+      },
+      "credits_earned_g": {
+        "mean": 7661.11,
+        "std": 1609.592,
+        "min": 5231.842,
+        "max": 10857.944
+      },
+      "final_debt_g": {
+        "mean": 71.614,
+        "std": 226.246,
+        "min": 0.0,
+        "max": 715.52
+      },
+      "peak_debt_g": {
+        "mean": 1638.853,
+        "std": 744.306,
+        "min": 820.096,
+        "max": 3521.392
+      },
+      "deadline_misses": {
+        "mean": 3.8,
+        "std": 3.676,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "emergency_deadline_misses": {
+        "mean": 0.1,
+        "std": 0.316,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "avg_wait_min": {
+        "mean": 415.542,
+        "std": 71.636,
+        "min": 291.25,
+        "max": 522.92
+      },
+      "avg_delay_min": {
+        "mean": 422.459,
+        "std": 67.054,
+        "min": 297.08,
+        "max": 527.5
+      },
+      "deferrals": {
+        "mean": 723.8,
+        "std": 107.15,
+        "min": 551.0,
+        "max": 889.0
+      },
+      "jobs_deferred": {
+        "mean": 28.6,
+        "std": 2.119,
+        "min": 24.0,
+        "max": 32.0
+      },
+      "throttle_actions": {
+        "mean": 3.5,
+        "std": 2.953,
+        "min": 0.0,
+        "max": 8.0
+      },
+      "energy_per_job_kwh": {
+        "mean": 1.395,
+        "std": 0.121,
+        "min": 1.201,
+        "max": 1.543
+      },
+      "completed_jobs": {
+        "mean": 36.0,
+        "std": 0.0,
+        "min": 36.0,
+        "max": 36.0
+      },
+      "failed_or_unfinished": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "decision_overhead_us": {
+        "mean": 201.896,
+        "std": 70.963,
+        "min": 131.28,
+        "max": 382.13
+      }
+    },
+    "debt_predictive": {
+      "gross_emissions_g": {
+        "mean": 17196.741,
+        "std": 1230.104,
+        "min": 15400.734,
+        "max": 19307.08
+      },
+      "energy_kwh": {
+        "mean": 51.299,
+        "std": 4.02,
+        "min": 44.769,
+        "max": 56.169
+      },
+      "total_debt_g": {
+        "mean": 2879.973,
+        "std": 687.275,
+        "min": 1907.975,
+        "max": 4070.824
+      },
+      "credits_applied_g": {
+        "mean": 2631.667,
+        "std": 593.877,
+        "min": 1907.975,
+        "max": 3495.695
+      },
+      "credits_earned_g": {
+        "mean": 7277.223,
+        "std": 2602.712,
+        "min": 3860.855,
+        "max": 11665.131
+      },
+      "final_debt_g": {
+        "mean": 248.306,
+        "std": 637.098,
+        "min": 0.0,
+        "max": 2011.859
+      },
+      "peak_debt_g": {
+        "mean": 1696.852,
+        "std": 660.38,
+        "min": 1005.929,
+        "max": 3100.825
+      },
+      "deadline_misses": {
+        "mean": 1.3,
+        "std": 1.252,
+        "min": 0.0,
+        "max": 3.0
+      },
+      "emergency_deadline_misses": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "avg_wait_min": {
+        "mean": 384.042,
+        "std": 32.39,
+        "min": 339.17,
+        "max": 444.58
+      },
+      "avg_delay_min": {
+        "mean": 408.416,
+        "std": 25.727,
+        "min": 373.33,
+        "max": 451.67
+      },
+      "deferrals": {
+        "mean": 100.3,
+        "std": 17.613,
+        "min": 72.0,
+        "max": 125.0
+      },
+      "jobs_deferred": {
+        "mean": 26.3,
+        "std": 1.889,
+        "min": 23.0,
+        "max": 30.0
+      },
+      "throttle_actions": {
+        "mean": 13.6,
+        "std": 4.006,
+        "min": 8.0,
+        "max": 19.0
+      },
+      "energy_per_job_kwh": {
+        "mean": 1.425,
+        "std": 0.112,
+        "min": 1.244,
+        "max": 1.56
+      },
+      "completed_jobs": {
+        "mean": 36.0,
+        "std": 0.0,
+        "min": 36.0,
+        "max": 36.0
+      },
+      "failed_or_unfinished": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "decision_overhead_us": {
+        "mean": 1297.103,
+        "std": 177.071,
+        "min": 1074.52,
+        "max": 1704.21
+      }
+    }
+  },
+  "comparisons_vs_fifo_pct": {
+    "fifo": {
+      "gross_emissions_g": 0.0,
+      "energy_kwh": 0.0,
+      "total_debt_g": 0.0,
+      "credits_applied_g": null,
+      "credits_earned_g": null,
+      "final_debt_g": 0.0,
+      "peak_debt_g": 0.0,
+      "deadline_misses": 0.0,
+      "emergency_deadline_misses": 0.0,
+      "avg_wait_min": 0.0,
+      "avg_delay_min": 0.0,
+      "deferrals": null,
+      "jobs_deferred": null,
+      "throttle_actions": null,
+      "energy_per_job_kwh": 0.0,
+      "completed_jobs": 0.0,
+      "failed_or_unfinished": null,
+      "decision_overhead_us": 0.0
+    },
+    "threshold": {
+      "gross_emissions_g": -14.77,
+      "energy_kwh": 0.0,
+      "total_debt_g": -44.94,
+      "credits_applied_g": null,
+      "credits_earned_g": null,
+      "final_debt_g": -91.29,
+      "peak_debt_g": -70.12,
+      "deadline_misses": 550.0,
+      "emergency_deadline_misses": -100.0,
+      "avg_wait_min": 897.0,
+      "avg_delay_min": 897.0,
+      "deferrals": null,
+      "jobs_deferred": null,
+      "throttle_actions": null,
+      "energy_per_job_kwh": 0.0,
+      "completed_jobs": 0.0,
+      "failed_or_unfinished": null,
+      "decision_overhead_us": 409.34
+    },
+    "debt_reactive": {
+      "gross_emissions_g": -18.21,
+      "energy_kwh": 0.86,
+      "total_debt_g": -41.32,
+      "credits_applied_g": null,
+      "credits_earned_g": null,
+      "final_debt_g": -98.67,
+      "peak_debt_g": -69.56,
+      "deadline_misses": 1800.0,
+      "emergency_deadline_misses": 0.0,
+      "avg_wait_min": 1655.79,
+      "avg_delay_min": 1685.01,
+      "deferrals": null,
+      "jobs_deferred": null,
+      "throttle_actions": null,
+      "energy_per_job_kwh": 0.87,
+      "completed_jobs": 0.0,
+      "failed_or_unfinished": null,
+      "decision_overhead_us": 1137.18
+    },
+    "debt_predictive": {
+      "gross_emissions_g": -16.67,
+      "energy_kwh": 3.03,
+      "total_debt_g": -46.52,
+      "credits_applied_g": null,
+      "credits_earned_g": null,
+      "final_debt_g": -95.39,
+      "peak_debt_g": -68.49,
+      "deadline_misses": 550.0,
+      "emergency_deadline_misses": -100.0,
+      "avg_wait_min": 1522.69,
+      "avg_delay_min": 1625.68,
+      "deferrals": null,
+      "jobs_deferred": null,
+      "throttle_actions": null,
+      "energy_per_job_kwh": 3.04,
+      "completed_jobs": 0.0,
+      "failed_or_unfinished": null,
+      "decision_overhead_us": 7848.42
+    }
+  },
+  "sweep": {
+    "param": "green_threshold",
+    "policy": "debt_predictive",
+    "points": [
+      {
+        "value": 150.0,
+        "aggregates": {
+          "gross_emissions_g": {
+            "mean": 17264.447,
+            "std": 1139.712,
+            "min": 15884.676,
+            "max": 19306.427
+          },
+          "energy_kwh": {
+            "mean": 51.427,
+            "std": 3.786,
+            "min": 44.977,
+            "max": 56.461
+          },
+          "total_debt_g": {
+            "mean": 2854.073,
+            "std": 727.6,
+            "min": 1967.953,
+            "max": 4204.953
+          },
+          "credits_applied_g": {
+            "mean": 2418.722,
+            "std": 632.053,
+            "min": 1551.064,
+            "max": 3495.699
+          },
+          "credits_earned_g": {
+            "mean": 6979.851,
+            "std": 2978.126,
+            "min": 3345.596,
+            "max": 11753.321
+          },
+          "final_debt_g": {
+            "mean": 435.351,
+            "std": 874.012,
+            "min": 0.0,
+            "max": 2653.889
+          },
+          "peak_debt_g": {
+            "mean": 1764.771,
+            "std": 841.745,
+            "min": 948.892,
+            "max": 3753.047
+          },
+          "deadline_misses": {
+            "mean": 1.9,
+            "std": 1.524,
+            "min": 0.0,
+            "max": 4.0
+          },
+          "emergency_deadline_misses": {
+            "mean": 0.1,
+            "std": 0.316,
+            "min": 0.0,
+            "max": 1.0
+          },
+          "avg_wait_min": {
+            "mean": 387.583,
+            "std": 31.971,
+            "min": 345.42,
+            "max": 452.08
+          },
+          "avg_delay_min": {
+            "mean": 414.75,
+            "std": 28.171,
+            "min": 380.42,
+            "max": 461.67
+          },
+          "deferrals": {
+            "mean": 97.5,
+            "std": 12.304,
+            "min": 74.0,
+            "max": 112.0
+          },
+          "jobs_deferred": {
+            "mean": 25.6,
+            "std": 2.319,
+            "min": 21.0,
+            "max": 29.0
+          },
+          "throttle_actions": {
+            "mean": 13.5,
+            "std": 4.601,
+            "min": 8.0,
+            "max": 23.0
+          },
+          "energy_per_job_kwh": {
+            "mean": 1.429,
+            "std": 0.105,
+            "min": 1.249,
+            "max": 1.568
+          },
+          "completed_jobs": {
+            "mean": 36.0,
+            "std": 0.0,
+            "min": 36.0,
+            "max": 36.0
+          },
+          "failed_or_unfinished": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "decision_overhead_us": {
+            "mean": 1290.171,
+            "std": 212.763,
+            "min": 1061.68,
+            "max": 1709.2
+          }
+        }
+      },
+      {
+        "value": 200.0,
+        "aggregates": {
+          "gross_emissions_g": {
+            "mean": 17196.741,
+            "std": 1230.104,
+            "min": 15400.734,
+            "max": 19307.08
+          },
+          "energy_kwh": {
+            "mean": 51.299,
+            "std": 4.02,
+            "min": 44.769,
+            "max": 56.169
+          },
+          "total_debt_g": {
+            "mean": 2879.973,
+            "std": 687.275,
+            "min": 1907.975,
+            "max": 4070.824
+          },
+          "credits_applied_g": {
+            "mean": 2631.667,
+            "std": 593.877,
+            "min": 1907.975,
+            "max": 3495.695
+          },
+          "credits_earned_g": {
+            "mean": 7277.223,
+            "std": 2602.712,
+            "min": 3860.855,
+            "max": 11665.131
+          },
+          "final_debt_g": {
+            "mean": 248.306,
+            "std": 637.098,
+            "min": 0.0,
+            "max": 2011.859
+          },
+          "peak_debt_g": {
+            "mean": 1696.852,
+            "std": 660.38,
+            "min": 1005.929,
+            "max": 3100.825
+          },
+          "deadline_misses": {
+            "mean": 1.3,
+            "std": 1.252,
+            "min": 0.0,
+            "max": 3.0
+          },
+          "emergency_deadline_misses": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "avg_wait_min": {
+            "mean": 384.042,
+            "std": 32.39,
+            "min": 339.17,
+            "max": 444.58
+          },
+          "avg_delay_min": {
+            "mean": 408.416,
+            "std": 25.727,
+            "min": 373.33,
+            "max": 451.67
+          },
+          "deferrals": {
+            "mean": 100.3,
+            "std": 17.613,
+            "min": 72.0,
+            "max": 125.0
+          },
+          "jobs_deferred": {
+            "mean": 26.3,
+            "std": 1.889,
+            "min": 23.0,
+            "max": 30.0
+          },
+          "throttle_actions": {
+            "mean": 13.6,
+            "std": 4.006,
+            "min": 8.0,
+            "max": 19.0
+          },
+          "energy_per_job_kwh": {
+            "mean": 1.425,
+            "std": 0.112,
+            "min": 1.244,
+            "max": 1.56
+          },
+          "completed_jobs": {
+            "mean": 36.0,
+            "std": 0.0,
+            "min": 36.0,
+            "max": 36.0
+          },
+          "failed_or_unfinished": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "decision_overhead_us": {
+            "mean": 1427.205,
+            "std": 263.375,
+            "min": 1025.78,
+            "max": 1936.19
+          }
+        }
+      },
+      {
+        "value": 250.0,
+        "aggregates": {
+          "gross_emissions_g": {
+            "mean": 17110.725,
+            "std": 1252.296,
+            "min": 15096.075,
+            "max": 19418.258
+          },
+          "energy_kwh": {
+            "mean": 51.25,
+            "std": 4.088,
+            "min": 44.773,
+            "max": 56.073
+          },
+          "total_debt_g": {
+            "mean": 2837.724,
+            "std": 572.01,
+            "min": 1907.975,
+            "max": 3608.954
+          },
+          "credits_applied_g": {
+            "mean": 2750.794,
+            "std": 568.242,
+            "min": 1907.975,
+            "max": 3608.954
+          },
+          "credits_earned_g": {
+            "mean": 7222.335,
+            "std": 2540.221,
+            "min": 3764.213,
+            "max": 11665.131
+          },
+          "final_debt_g": {
+            "mean": 86.931,
+            "std": 193.885,
+            "min": 0.0,
+            "max": 568.904
+          },
+          "peak_debt_g": {
+            "mean": 1567.922,
+            "std": 512.388,
+            "min": 845.349,
+            "max": 2164.283
+          },
+          "deadline_misses": {
+            "mean": 2.0,
+            "std": 1.764,
+            "min": 0.0,
+            "max": 5.0
+          },
+          "emergency_deadline_misses": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "avg_wait_min": {
+            "mean": 388.083,
+            "std": 31.334,
+            "min": 337.5,
+            "max": 444.17
+          },
+          "avg_delay_min": {
+            "mean": 411.917,
+            "std": 25.794,
+            "min": 371.25,
+            "max": 450.83
+          },
+          "deferrals": {
+            "mean": 99.4,
+            "std": 16.735,
+            "min": 76.0,
+            "max": 136.0
+          },
+          "jobs_deferred": {
+            "mean": 26.4,
+            "std": 1.713,
+            "min": 24.0,
+            "max": 30.0
+          },
+          "throttle_actions": {
+            "mean": 11.8,
+            "std": 3.36,
+            "min": 8.0,
+            "max": 16.0
+          },
+          "energy_per_job_kwh": {
+            "mean": 1.424,
+            "std": 0.114,
+            "min": 1.244,
+            "max": 1.558
+          },
+          "completed_jobs": {
+            "mean": 36.0,
+            "std": 0.0,
+            "min": 36.0,
+            "max": 36.0
+          },
+          "failed_or_unfinished": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "decision_overhead_us": {
+            "mean": 1322.098,
+            "std": 236.108,
+            "min": 1023.87,
+            "max": 1726.61
+          }
+        }
+      },
+      {
+        "value": 300.0,
+        "aggregates": {
+          "gross_emissions_g": {
+            "mean": 17133.902,
+            "std": 1239.82,
+            "min": 15126.922,
+            "max": 19307.08
+          },
+          "energy_kwh": {
+            "mean": 51.163,
+            "std": 4.018,
+            "min": 44.773,
+            "max": 55.879
+          },
+          "total_debt_g": {
+            "mean": 2831.929,
+            "std": 612.922,
+            "min": 1907.975,
+            "max": 3835.11
+          },
+          "credits_applied_g": {
+            "mean": 2750.041,
+            "std": 620.264,
+            "min": 1907.975,
+            "max": 3835.11
+          },
+          "credits_earned_g": {
+            "mean": 7379.68,
+            "std": 2436.365,
+            "min": 3806.097,
+            "max": 11665.131
+          },
+          "final_debt_g": {
+            "mean": 81.888,
+            "std": 188.292,
+            "min": 0.0,
+            "max": 568.904
+          },
+          "peak_debt_g": {
+            "mean": 1564.78,
+            "std": 604.225,
+            "min": 845.349,
+            "max": 2672.96
+          },
+          "deadline_misses": {
+            "mean": 1.4,
+            "std": 1.647,
+            "min": 0.0,
+            "max": 5.0
+          },
+          "emergency_deadline_misses": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "avg_wait_min": {
+            "mean": 382.916,
+            "std": 31.951,
+            "min": 335.83,
+            "max": 442.92
+          },
+          "avg_delay_min": {
+            "mean": 405.875,
+            "std": 25.486,
+            "min": 369.17,
+            "max": 448.75
+          },
+          "deferrals": {
+            "mean": 96.7,
+            "std": 13.499,
+            "min": 73.0,
+            "max": 114.0
+          },
+          "jobs_deferred": {
+            "mean": 26.5,
+            "std": 1.78,
+            "min": 24.0,
+            "max": 30.0
+          },
+          "throttle_actions": {
+            "mean": 12.3,
+            "std": 3.498,
+            "min": 8.0,
+            "max": 17.0
+          },
+          "energy_per_job_kwh": {
+            "mean": 1.421,
+            "std": 0.112,
+            "min": 1.244,
+            "max": 1.552
+          },
+          "completed_jobs": {
+            "mean": 36.0,
+            "std": 0.0,
+            "min": 36.0,
+            "max": 36.0
+          },
+          "failed_or_unfinished": {
+            "mean": 0.0,
+            "std": 0.0,
+            "min": 0.0,
+            "max": 0.0
+          },
+          "decision_overhead_us": {
+            "mean": 1328.999,
+            "std": 313.532,
+            "min": 1101.59,
+            "max": 2148.78
+          }
+        }
+      }
+    ]
+  },
+  "trace_summary": {
+    "seed": 1,
+    "jobs": 36,
+    "by_class": {
+      "emergency": 4,
+      "normal": 18,
+      "background": 14
+    },
+    "estimated_energy_kwh": 52.05
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel"
+  },
+  "methodology": [
+    "Identical seeded workload trace and carbon curve for every policy within a seed.",
+    "Energy is estimated from declared power and runtime (static + dynamic throttle model); all readings SIMULATED.",
+    "Metrics are means across seeds with sample standard deviation; decision overhead is measured wall time on this host and is not deterministic.",
+    "Credits follow the verified-credit rules; surplus credit beyond outstanding debt is not banked."
+  ]
+}

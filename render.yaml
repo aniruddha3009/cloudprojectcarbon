@@ -1,0 +1,25 @@
+# Render Blueprint: ONE free web service (no database service). The root Dockerfile builds the React
+# UI and serves it from FastAPI on the same origin, so the UI calls /api/... directly (no CORS needed;
+# Render's own URL is still allowed automatically via RENDER_EXTERNAL_URL).
+#
+# Data: SQLite on the container disk. Render's free filesystem is EPHEMERAL — all simulation jobs,
+# ledger entries and experiment results reset on every redeploy, restart or spin-down (15 min idle).
+# The app re-creates its tables and default settings on start. See docs/CLOUD_DEPLOYMENT.md.
+services:
+  - type: web
+    name: carbon-debt
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      # Every mutating API call needs this value in the X-Admin-Token header (paste it in the UI).
+      - key: ADMIN_TOKEN
+        generateValue: true
+      # Optional. Leave empty and Live mode shows "Unavailable"; Simulation mode never needs it.
+      - key: INDIA_ENERGY_ATLAS_API_KEY
+        sync: false

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carbon Debt Computing — poster</title>
+<style>
+  @page { size: A3 portrait; margin: 0; }
+  :root { --ink:#17161a; --ink2:#47454f; --muted:#7a7782; --violet:#5b4bd6; --violet-soft:#efecff; --green:#17804c; --green-soft:#e8f6ee; --line:#dcd9e3; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--ink); font-family: "Segoe UI", system-ui, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 297mm; height: 420mm; padding: 14mm 14mm 11mm; display: flex; flex-direction: column; gap: 6mm; overflow: hidden; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid var(--ink); padding-bottom: 4mm; }
+  h1 { font-size: 36pt; line-height: 1; margin: 0; letter-spacing: -0.02em; }
+  .sub { font-size: 15pt; color: var(--ink2); margin-top: 2.5mm; }
+  .who { text-align: right; white-space: nowrap; font-size: 11pt; color: var(--ink2); line-height: 1.5; }
+  .who b { color: var(--ink); }
+  h2 { font-size: 15pt; margin: 0 0 2mm; letter-spacing: -0.01em; }
+  p, li { font-size: 10.5pt; line-height: 1.45; color: var(--ink2); margin: 0; }
+  .row { display: grid; gap: 6mm; }
+  .r1 { grid-template-columns: 1fr 1.6fr; }
+  .eq { display: flex; align-items: baseline; gap: 3mm; font-size: 19pt; white-space: nowrap; font-weight: 700; margin: 2mm 0 2.5mm; letter-spacing: -0.02em; }
+  .eq .op { color: var(--muted); font-weight: 300; }
+  .eq .c { color: var(--green); } .eq .o { color: var(--violet); }
+  .eq small { display: block; font-size: 9pt; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+  ol.mech { margin: 0; padding-left: 0; list-style: none; counter-reset: m; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 5mm; }
+  ol.mech li { counter-increment: m; position: relative; padding-left: 9mm; }
+  ol.mech li::before { content: counter(m); position: absolute; left: 0; top: 0.2mm; width: 6mm; height: 6mm; border-radius: 50%; background: var(--violet); color: #fff; font-size: 9.5pt; font-weight: 700; display: grid; place-items: center; }
+  ol.mech b { color: var(--ink); }
+  figure { margin: 0; }
+  figure img { width: 100%; display: block; }
+  figcaption { font-size: 9pt; color: var(--muted); margin-top: 1.2mm; }
+  .r2 { grid-template-columns: 1.15fr 1fr; align-items: start; }
+  table { border-collapse: collapse; width: 100%; font-size: 10.5pt; }
+  th, td { padding: 1.6mm 2mm; text-align: right; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--muted); font-weight: 600; font-size: 9.5pt; }
+  tr.hl td { background: var(--violet-soft); font-weight: 600; color: var(--ink); }
+  .box { border: 1.5px solid var(--line); border-radius: 3mm; padding: 3mm 4.5mm; }
+  .honest { background: #fafafa; }
+  .r3 { grid-template-columns: 1fr 1fr 1fr; }
+  footer { margin-top: auto; display: flex; justify-content: space-between; font-size: 9pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 2.5mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1>Carbon Debt Computing</h1>
+      <div class="sub">A deadline-aware controller that books emergency carbon as debt and repays it in green windows</div>
+    </div>
+    <div class="who"><b>Challenge 9 · Individual project</b><br>[STUDENT NAME] · [REGISTRATION_NO]<br>Cloud computing</div>
+  </header>
+
+  <div class="row r1">
+    <section>
+      <h2>The problem</h2>
+      <p>Emergency jobs, such as a hospital model failover or a flood-alert recompute, cannot wait for clean power.
+        Carbon-aware schedulers defer flexible work, but they forget the unavoidable emissions and never make them up.</p>
+      <div class="eq">
+        <span>1,059 g<small>debt incurred</small></span><span class="op">−</span>
+        <span class="c">1,059 g<small>verified credits</small></span><span class="op">=</span>
+        <span class="o">0 g<small>outstanding</small></span>
+      </div>
+      <p>The demo scenario, computed by the backend: two morning emergencies at 550–650 gCO₂e/kWh create debt, which is repaid by 13:30 with no missed deadline.</p>
+    </section>
+    <section>
+      <h2>How it works</h2>
+      <ol class="mech">
+        <li><b>Book the debt.</b> energy × max(0, intensity − 350) per 15-min slot, appended to a SHA-256 hash-chained ledger.</li>
+        <li><b>Invert priority.</b> While debt &gt; 0, flexible work runs only in green slots (≤ 200), ranked by repayment value instead of nominal priority.</li>
+        <li><b>Throttle progressively.</b> Debt bands set background/normal capacity to 100/50/20%/paused. Never emergencies, always deadline-safe.</li>
+        <li><b>Repay with verified credits.</b> Baseline recorded at deferral; credit = E·I<sub>baseline</sub> − actual emissions; no duplicates, no banking.</li>
+        <li><b>Predict.</b> An EDF capacity-reservation planner chooses feasible windows over the forecast and projects the debt path, raising throttling early.</li>
+        <li><b>Prove it.</b> Ledger verification and a tamper demo, a carbon receipt per job, and replay of identical traces across policies.</li>
+      </ol>
+    </section>
+  </div>
+
+  <figure style="width:78%;margin:0 auto">
+    <img src="../diagrams/architecture.png" alt="System architecture: React dashboard, FastAPI, simulation and experiment services, deterministic core, database and telemetry sources">
+  </figure>
+
+  <div class="row r2">
+    <figure>
+      <img src="../results/scenario_timeline.png" alt="Grid intensity and carbon debt during the demo scenario">
+      <figcaption>Demo scenario (predictive controller). Debt rises during the morning peak and falls to zero as deferred jobs run in the solar green window.</figcaption>
+    </figure>
+    <section>
+      <h2>Results — 10 seeds × 36 jobs</h2>
+      <table>
+        <thead><tr><th>Policy</th><th>Emissions</th><th>Debt incurred</th><th>Final debt</th><th>Misses/run</th></tr></thead>
+        <tbody>
+          <tr><td>FIFO</td><td>20.6 kg</td><td>5.38 kg</td><td>5.38 kg</td><td>0.2</td></tr>
+          <tr><td>Threshold</td><td>17.6 kg</td><td>2.96 kg</td><td>0.47 kg</td><td>1.3</td></tr>
+          <tr><td>Debt controller</td><td>16.9 kg</td><td>3.16 kg</td><td>0.07 kg</td><td>3.8</td></tr>
+          <tr class="hl"><td>Predictive</td><td>17.2 kg</td><td>2.88 kg</td><td>0.25 kg</td><td>1.3</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:3mm">Against FIFO, the predictive controller cut emissions by <b>16.7%</b> and debt by <b>46.5%</b>, with deadline misses equal to threshold deferral. Forecasting cut misses from 3.8 to 1.3 per run compared with the reactive controller. The price is delay for flexible work (~6.8 h on average).</p>
+    </section>
+  </div>
+
+  
+  <div class="row r3">
+    <div class="box">
+      <h2>Telemetry</h2>
+      <p>Live mode: Indian grid intensity from India Energy Atlas, the Windows process list (psutil), and measured CPU-package energy from the Windows Energy Meter (Intel RAPL), shared to each job by CPU time.</p>
+    </div>
+    <div class="box">
+      <h2>Engineering</h2>
+      <p>FastAPI · SQLAlchemy · SQLite/PostgreSQL · React · TypeScript · Recharts. Decimal accounting, 76 automated tests, deterministic replay, Docker + Caddy HTTPS deployment.</p>
+    </div>
+    <div class="box honest">
+      <h2>Honest limits</h2>
+      <p>Energy is estimated, the cluster is simulated locally, and the default grid curve is illustrative. Credits count avoided <i>future</i> emissions and never erase past ones. The hash chain is trustworthy only against an external head checkpoint.</p>
+    </div>
+  </div>
+
+  <footer><span>Carbon Debt Computing — Challenge 9</span><span>Numbers: docs/results (regenerate with tools/generate_results.py)</span></footer>
+</div>
+</body>
+</html>
+
+

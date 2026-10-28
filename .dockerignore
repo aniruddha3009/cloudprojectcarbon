@@ -1,0 +1,12 @@
+.env
+**/.env
+**/.env.local
+.git
+**/node_modules
+**/.venv
+**/__pycache__
+backend/data
+frontend/dist
+docs
+tools
+*.docx
